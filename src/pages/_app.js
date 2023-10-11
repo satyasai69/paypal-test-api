@@ -1,4 +1,4 @@
-import '@/styles/globals.css'
+import '@/styles/globals.css';
 import '@rainbow-me/rainbowkit/styles.css';
 import {
   getDefaultWallets,
@@ -10,6 +10,7 @@ import {
 } from 'wagmi/chains';
 import { alchemyProvider } from 'wagmi/providers/alchemy';
 import { publicProvider } from 'wagmi/providers/public';
+
 
 
 const { chains, publicClient } = configureChains(

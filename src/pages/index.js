@@ -45,20 +45,27 @@ export default function Home() {
    getNameandBalance();
   }, [isConnected])
 
+  
+  
   return (
-     
+    <>
       <div>
+       <div>
         <ConnectButton />
+       </div>
+       <div>
         {isConnected ? (
           <div>
-          <h1>{address} ,  {balance}</h1>
-          <h1>hi</h1>
+            <h1>{address}</h1>
+            <h1>balance = {balance}</h1>
           </div>
         ) : (
-          <h1>place connet web3 wallet</h1>
+          <div>
+           <h1>place connet web3 wallet</h1>
+          </div>
         )}
-        
+       </div>
       </div>
-    
+    </>
   )
 }
