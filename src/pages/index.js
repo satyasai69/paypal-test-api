@@ -39,34 +39,6 @@ export default function Home() {
 
   console.log(balance)
 
- /*async function getNameandBalance() {
-    try {
-      // Construct the URL with query parameters
-      const queryParams = new URLSearchParams({ userAddress: address }).toString();
-      //const apiUrl = `http://localhost:3001/api/getNameAndBalance?${queryParams}`;
-  
-      // Make a GET request using the fetch function
-      const response = await fetch("http://localhost:3000/api/getNameAndBalance?userAddress=0x2CA7AD0205B8aA8c3ccf778C80474d6aC23eeADD");
-  
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-  
-      const responseData = await response.json();
-  
-      console.log(responseData.requests);
-  
-      if (responseData.name[1]) {
-        setName(responseData.name[0]);
-      }
-  
-      setBalance(responseData.balance);
-      setRequest(responseData.requests);
-      sethistory(responseData.history);
-    } catch (error) {
-      console.error('Error:', error);
-    }
-  }*/
 
   useEffect(() => {
    if (!isConnected) return;
