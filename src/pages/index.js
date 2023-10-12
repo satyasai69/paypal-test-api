@@ -1,5 +1,6 @@
 
 import { useState, useEffect } from "react";
+import RecentActivity from "./componets/RecentActivity"
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 import { useConnect, useAccount, useDisconnect } from "wagmi";
 import axios from 'axios';
@@ -58,6 +59,7 @@ export default function Home() {
           <div>
             <h1>{address}</h1>
             <h1>balance = {balance}</h1>
+            <RecentActivity history={history}/>
           </div>
         ) : (
           <div>

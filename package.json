@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@rainbow-me/rainbowkit": "^1.1.1",
+    "antd": "^5.10.0",
     "moralis": "^2.23.1",
     "next": "13.5.4",
     "react": "^18",
