@@ -9,17 +9,17 @@ import ABI from "./abi.json";
 Moralis.start({
   apiKey: process.env.MORALIS_KEY || eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJub25jZSI6ImMxNWYzNmExLTllZmEtNGVmMy1iZTVjLWEyNzVjNjRmOTRkOSIsIm9yZ0lkIjoiMzYwNTA0IiwidXNlcklkIjoiMzcwNTAxIiwidHlwZUlkIjoiZGEyM2NiYjgtNTU3MC00NzVlLWJmNWYtMTJhM2RhMzAwNmNjIiwidHlwZSI6IlBST0pFQ1QiLCJpYXQiOjE2OTY5MTcyNzksImV4cCI6NDg1MjY3NzI3OX0.XGj3NLimcD8p2V7gO1ZORsRdqXQYUMmZ5IugzJNeVXo // Replace with your Moralis API key
 });
-
+const ss = "satya"
 // Utility function to convert an array to objects
 async function convertArrayToObjects(arr) {
   // Your conversion logic here
   const dataArray = arr.map((transaction, index) => ({
     key: (arr.length + 1 - index).toString(),
-    type: transaction[0],
+    type: transaction[0] ,
     amount: transaction[1],
     message: transaction[2],
     address: `${transaction[3].slice(0,4)}...${transaction[3].slice(0,4)}`,
-    subject: transaction[4],
+    subject: transaction[4] ,
   }));
 
   return dataArray.reverse();
