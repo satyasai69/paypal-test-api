@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from "react";
-import RecentActivity from "./componets/RecentActivity" //<RecentActivity history={history}/>
+import RecentActivity from "./componets/RecentActivity" 
 import AccountDetails from "./componets/AccountDetails";
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 import { useConnect, useAccount, useDisconnect } from "wagmi";
@@ -47,7 +47,8 @@ export default function Home() {
    getNameandBalance();
   }, [isConnected])
 
-  
+  const hist = Array.isArray({history});
+
   
   return (
     <>
@@ -60,9 +61,11 @@ export default function Home() {
           <div>
             <h1>{address}</h1>
             <h1>balance = {balance}</h1>
+            <h1>username = {name}</h1>
             <AccountDetails address={address}
                   name={name}
                   balance={balance}/>
+            <RecentActivity history= {history}/>
           </div>
         ) : (
           <div>

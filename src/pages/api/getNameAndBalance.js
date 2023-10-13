@@ -5,13 +5,16 @@
 import Moralis from "moralis";
 import ABI from "./abi.json";
 
+const contactadd = "0xb5Ce67ec775BDD14c62BEC526a4DdabCcE54610C"
+const chainId = "0x5"
+
 // Initialize Moralis with your API key
 Moralis.start({
-  apiKey: process.env.MORALIS_KEY || eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJub25jZSI6ImMxNWYzNmExLTllZmEtNGVmMy1iZTVjLWEyNzVjNjRmOTRkOSIsIm9yZ0lkIjoiMzYwNTA0IiwidXNlcklkIjoiMzcwNTAxIiwidHlwZUlkIjoiZGEyM2NiYjgtNTU3MC00NzVlLWJmNWYtMTJhM2RhMzAwNmNjIiwidHlwZSI6IlBST0pFQ1QiLCJpYXQiOjE2OTY5MTcyNzksImV4cCI6NDg1MjY3NzI3OX0.XGj3NLimcD8p2V7gO1ZORsRdqXQYUMmZ5IugzJNeVXo // Replace with your Moralis API key
+  apiKey: process.env.MORALIS_KEY  // Replace with your Moralis API key
 });
-const ss = "satya"
+
 // Utility function to convert an array to objects
-async function convertArrayToObjects(arr) {
+function convertArrayToObjects(arr) {
   // Your conversion logic here
   const dataArray = arr.map((transaction, index) => ({
     key: (arr.length + 1 - index).toString(),
@@ -20,8 +23,8 @@ async function convertArrayToObjects(arr) {
     message: transaction[2],
     address: `${transaction[3].slice(0,4)}...${transaction[3].slice(0,4)}`,
     subject: transaction[4] ,
-  }));
-
+  })); 
+ 
   return dataArray.reverse();
 }
 
@@ -38,8 +41,8 @@ export default async function handler(req, res) {
   try {
     // Query Moralis to get user information
     const response = await Moralis.EvmApi.utils.runContractFunction({
-      chain: "0x5",
-      address: "0x5371066fE7fbd627F157e096d73940d1a897F3bB", // Replace with your contract address
+      chain: chainId,
+      address: contactadd, // Replace with your contract address
       functionName: "getUserName",
       abi: ABI,
       params: { _user: userAddress },
@@ -50,7 +53,7 @@ export default async function handler(req, res) {
 
     // Continue with your logic here...
     const secresponse = await Moralis.EvmApi.balance.getNativeBalance({
-      chain: "0x5",
+      chain: chainId,
       address: userAddress, // Replace with your contract address
     })
 
@@ -63,8 +66,8 @@ export default async function handler(req, res) {
      const  jsonresponseDoller = (threeresponse.raw.usdPrice * jsonResponsebal).toFixed(2);
     */
      const fourResponse = await Moralis.EvmApi.utils.runContractFunction({
-      chain: "0x5",
-      address: "0x5371066fE7fbd627F157e096d73940d1a897F3bB",
+      chain: chainId,
+      address: contactadd,
       functionName: "getAllHistroy",
       abi: ABI,
       params: { _user: userAddress },
@@ -74,8 +77,8 @@ export default async function handler(req, res) {
    
    
     const fiveResponse = await Moralis.EvmApi.utils.runContractFunction({
-      chain: "0x5",
-      address: "0x5371066fE7fbd627F157e096d73940d1a897F3bB",
+      chain: chainId,
+      address: contactadd,
       functionName: "getMyRequests",
       abi: ABI,
       params: { _user: userAddress },

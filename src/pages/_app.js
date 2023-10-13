@@ -11,6 +11,8 @@ import {
 import { alchemyProvider } from 'wagmi/providers/alchemy';
 import { publicProvider } from 'wagmi/providers/public';
 
+import '../styles/globals.css';
+
 
 
 const { chains, publicClient } = configureChains(
