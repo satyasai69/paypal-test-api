@@ -28,7 +28,6 @@ function AccountDetails({ address, name, balance }) {
       </div>
       <div className="balanceOptions">
         <div className="extraOption">Set Username</div>
-        <div className="extraOption">Switch Accounts</div>
       </div>
     </Card>
   );
