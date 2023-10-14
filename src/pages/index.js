@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import RecentActivity from "./components/RecentActivity" 
 import AccountDetails from "./components/AccountDetails";
-import Unconnectwall from "./components/unconnect";
+import Unconnectwall from "./components/Unconnect";
 import { ConnectButton } from '@rainbow-me/rainbowkit'; 
 import { useConnect, useAccount, useDisconnect } from "wagmi";
 import axios from 'axios';
