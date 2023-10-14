@@ -17,7 +17,7 @@ export default function Home() {
   const { address, isConnected } = useAccount();
   //console.log(address)
 
-  const[name, setName] = useState("---");
+  const[name, setName] = useState("");
   const [balance, setBalance] = useState("---");
   const [requests, setRequests] = useState("---");
   const [history, sethistory] = useState("---");
@@ -68,7 +68,7 @@ export default function Home() {
             <AccountDetails address={address}
                   name={name}
                   balance={balance}/>
-            <RecentActivity history= {history}/>
+               <RecentActivity history= {history}/>
           </div>
          ) : (
           <Unconnectwall/>
