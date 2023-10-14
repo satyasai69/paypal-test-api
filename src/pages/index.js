@@ -1,10 +1,13 @@
 
 import { useState, useEffect } from "react";
-import RecentActivity from "./componets/RecentActivity" 
-import AccountDetails from "./componets/AccountDetails";
-import { ConnectButton } from '@rainbow-me/rainbowkit';
+import RecentActivity from "./components/RecentActivity" 
+import AccountDetails from "./components/AccountDetails";
+import Unconnectwall from "./components/unconnect";
+import { ConnectButton } from '@rainbow-me/rainbowkit'; 
 import { useConnect, useAccount, useDisconnect } from "wagmi";
 import axios from 'axios';
+import { Layout } from "antd";
+
 
 
 
@@ -50,14 +53,14 @@ export default function Home() {
   const hist = Array.isArray({history});
 
   
-  return (
-    <>
-      <div>
-       <div>
-        <ConnectButton />
-       </div>
-       <div>
-        {isConnected ? (
+  return (<div>
+       <header>
+         <div>
+         <ConnectButton />
+         </div>
+      </header>
+        <div>
+         {isConnected ? (
           <div>
             <h1>{address}</h1>
             <h1>balance = {balance}</h1>
@@ -67,13 +70,11 @@ export default function Home() {
                   balance={balance}/>
             <RecentActivity history= {history}/>
           </div>
-        ) : (
-          <div>
-           <h1>place connet web3 wallet</h1>
-          </div>
-        )}
+         ) : (
+          <Unconnectwall/>
+         )}
        </div>
       </div>
-    </>
-  )
+  );
 }
+

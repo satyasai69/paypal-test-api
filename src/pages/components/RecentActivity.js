@@ -30,12 +30,12 @@ const columns = [
     key: "amount",
     render: (_, record) => (
       <div
-        style={record.type === "Send" ? { color: "red" } : { color: "green" }}
+        style={record.type === "send" ? { color: "red" } : { color: "green" }}
       >
-        {record.type === "Send" ? "-" : "+"}
-        {record.amount} Matic
+        {record.type === "send" ? "-" : "+"}
+        {record.amount} ETH
       </div>
-    ),
+   ),
   },
 ];
 
