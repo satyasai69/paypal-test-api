@@ -23,7 +23,7 @@ const { chains, publicClient } = configureChains(
   ]
 );
 const { connectors } = getDefaultWallets({
-  appName: 'paypaltest',
+  appName: 'web3-paymet-app',
   projectId: '1ac39e37ad4094b564e470054f24618f' ,
   chains
 });

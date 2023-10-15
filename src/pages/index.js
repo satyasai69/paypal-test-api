@@ -1,12 +1,13 @@
 
 import { useState, useEffect } from "react";
-import RecentActivity from "./components/RecentActivity" 
+import RecentActivity from "./components/RecentActivity";
 import AccountDetails from "./components/AccountDetails";
+import RequestAndPay from "./components/RequestAndPay";
 import Unconnectwall from "./components/Unconnect";
 import { ConnectButton } from '@rainbow-me/rainbowkit'; 
 import { useConnect, useAccount, useDisconnect } from "wagmi";
 import axios from 'axios';
-import { Layout } from "antd";
+
 
 
 
@@ -68,7 +69,10 @@ export default function Home() {
             <AccountDetails address={address}
                   name={name}
                   balance={balance}/>
-               <RecentActivity history= {history}/>
+              <div>
+                <RequestAndPay  requests={requests} getNameandBalance={getNameandBalance}/>
+              </div>
+              <RecentActivity history= {history}/>
           </div>
          ) : (
           <Unconnectwall/>
