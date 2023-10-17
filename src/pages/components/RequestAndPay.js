@@ -1,6 +1,6 @@
 import React, { useState, useEffect} from "react";
 import { DollarOutlined, SwapOutlined } from "@ant-design/icons";
-import { Modal, Input, InputNumber } from "antd";
+import { Modal, Input, InputNumber, message } from "antd";
 import { usePrepareContractWrite, useContractWrite, useWaitForTransaction } from "wagmi";
 import { goerli } from "viem/chains";
 import ABI from "../api/abi.json";
@@ -14,8 +14,21 @@ function RequestAndPay (requests, getNameAndBalance) {
         chanId: goerli.id,
         address: contractadd,
         abi: ABI,
-        functionName: ""
+        functionName: "payRequest",
+        args: [0]
     })
+
+    const { write, data } = useContractWrite(config)
+
+    const { config: configRequest } = usePrepareContractWrite({
+        chanId: goerli.id,
+        address: contractadd,
+        abi: ABI,
+        functionName: "createRequest",
+         args: [requestAddress, requestAmount, requestMessage]
+    })
+
+    const {write:writeRequest, data:dataRequest} = useContractWrite(configRequest)
 
     return(
         <>
