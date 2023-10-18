@@ -1,5 +1,6 @@
 
 import { useState, useEffect } from "react";
+import * as React from 'react'
 import RecentActivity from "./components/RecentActivity";
 import AccountDetails from "./components/AccountDetails";
 import RequestAndPay from "./components/RequestAndPay";
@@ -44,6 +45,7 @@ export default function Home() {
   }
 
   //console.log(balance)
+  //<RequestAndPay  requests={requests} getNameandBalance={getNameandBalance}/>
 
 
   useEffect(() => {
@@ -70,7 +72,7 @@ export default function Home() {
                   name={name}
                   balance={balance}/>
               <div>
-                <RequestAndPay  requests={requests} getNameandBalance={getNameandBalance}/>
+              <RequestAndPay  requests={requests} getNameandBalance={getNameandBalance}/>
               </div>
               <RecentActivity history= {history}/>
           </div>
