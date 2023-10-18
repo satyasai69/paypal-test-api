@@ -22,8 +22,8 @@ function AccountDetails({ address, name, balance }) {
       <div className="accountDetailRow">
         <img alt="maticLogo" width={25} />
         <div>
-          <div className="accountDetailHead"> Native Matic Tokens</div>
-          <div className="accountDetailBody">{balance} Matic</div>
+          <div className="accountDetailHead"> Native ETH Tokens</div>
+          <div className="accountDetailBody">{balance} ETH</div>
         </div>
       </div>
       <div className="balanceOptions">

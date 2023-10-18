@@ -13,7 +13,7 @@ function RequestAndPay({ requests, getNameAndBalance }) {
   const [requestAddress, setRequestAddress] = useState("");
   const [requestMessage, setRequestMessage] = useState("");
 
-  const { config } = usePrepareContractWrite({
+const { config} = usePrepareContractWrite({
     chainId: 0x5,
     address: "0xb5Ce67ec775BDD14c62BEC526a4DdabCcE54610C",
     abi: ABI,
@@ -82,7 +82,7 @@ function RequestAndPay({ requests, getNameAndBalance }) {
       >
         {requests && requests["0"] &&requests["0"].length > 0 &&  (
           <>
-            <h2>Sending payment to {requests["3"][0]}</h2> 
+            <h2>Sending payment to </h2> 
             <h3>Value: {requests["1"][0]} ETH</h3>
             <p>"{requests["2"][0]}"</p>
           </>

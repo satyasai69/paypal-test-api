@@ -18,7 +18,7 @@ import '../styles/globals.css';
  
 const { chains, publicClient } = configureChains(
   [goerli],
-  [infuraProvider({ apiKey: "9914ca2f27344fcf828c8e1c33ac6075" })],
+  [infuraProvider({ apiKey: "process.env.infura_apikey" })],
 )
 
 /*const { chains, publicClient } = configureChains(
@@ -30,7 +30,7 @@ const { chains, publicClient } = configureChains(
 ); */
 const { connectors } = getDefaultWallets({
   appName: 'web3-paymet-app',
-  projectId: '1ac39e37ad4094b564e470054f24618f' ,
+  projectId: process.env.projectId ,
   chains
 });
 const wagmiConfig = createConfig({
