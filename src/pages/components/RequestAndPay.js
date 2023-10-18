@@ -5,6 +5,7 @@ import { usePrepareContractWrite, useContractWrite, useWaitForTransaction  } fro
 import { goerli } from "viem/chains";
 import ABI from "../api/abi.json";
 
+
 function RequestAndPay({ requests, getNameAndBalance }) {
   const [payModal, setPayModal] = useState(false);
   const [requestModal, setRequestModal] = useState(false);
@@ -19,7 +20,7 @@ function RequestAndPay({ requests, getNameAndBalance }) {
     functionName: "payRequest",
     args: [0],
     overrides: {
-      value: String(Number(requests["1"][0] * 1e18)),
+      value: String(Number(requests["1"][0]*1e18)),
     },
   });
 
@@ -61,7 +62,7 @@ function RequestAndPay({ requests, getNameAndBalance }) {
 
   useEffect(()=>{
     if(isSuccess || isSuccessRequest){
-      getNameAndBalance();
+      getNameAndBalance;
     }
   },[isSuccess, isSuccessRequest])
 
@@ -72,7 +73,7 @@ function RequestAndPay({ requests, getNameAndBalance }) {
         open={payModal}
         onOk={() => {
           write?.();
-          //hidePayModal();
+          hidePayModal();
         }}
         onCancel={hidePayModal}
         okText="Proceed To Pay"
@@ -81,10 +82,9 @@ function RequestAndPay({ requests, getNameAndBalance }) {
       >
         {requests && requests["0"] &&requests["0"].length > 0 &&  (
           <>
-            <h2>Sending payment to </h2> 
-            <h3>Value: {requests["1"][0]} Matic</h3>
+            <h2>Sending payment to {requests["3"][0]}</h2> 
+            <h3>Value: {requests["1"][0]} ETH</h3>
             <p>"{requests["2"][0]}"</p>
-            <button   onClick={() => write?.()}>PAYS</button>
           </>
         )}
       </Modal>
@@ -101,7 +101,7 @@ function RequestAndPay({ requests, getNameAndBalance }) {
       >
         <p>Amount (ETH)</p>
         <InputNumber value={requestAmount} onChange={(val)=>setRequestAmount(val)}/>
-        <p>From (address)</p>
+        <p>From (address)</p> 
         <Input placeholder="0x..." value={requestAddress} onChange={(val)=>setRequestAddress(val.target.value)}/>
         <p>Message</p>
         <Input placeholder="Lunch Bill..." value={requestMessage} onChange={(val)=>setRequestMessage(val.target.value)}/>

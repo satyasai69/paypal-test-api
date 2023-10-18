@@ -54,7 +54,7 @@ export default function Home() {
   }, [isConnected])
 
   const hist = Array.isArray({history});
-
+// <RecentActivity history= {history}/>
   
   return (<div>
        <header>
@@ -74,7 +74,7 @@ export default function Home() {
               <div>
               <RequestAndPay  requests={requests} getNameandBalance={getNameandBalance}/>
               </div>
-              <RecentActivity history= {history}/>
+             
           </div>
          ) : (
           <Unconnectwall/>
